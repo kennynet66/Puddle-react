@@ -1,0 +1,6 @@
+.btn{
+    background-color: dodgerblue;
+}
+.btn:hover{
+    background-color: rgb(24, 129, 235);
+}
