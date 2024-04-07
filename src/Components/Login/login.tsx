@@ -12,7 +12,6 @@ function Login() {
       icon: "error",
       title: "Oops...",
       text: msg,
-      footer: '<a href="/Signup">Create Account</a>'
     });
   }
 
@@ -51,6 +50,7 @@ function Login() {
       showError(data.error)
     } else if(data.message){
       showSuccess(data.message, '/products')
+      localStorage.setItem('Puddle-react-auth-token', data.token)
     }
     
     

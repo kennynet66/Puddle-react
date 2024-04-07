@@ -10,10 +10,10 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://fakestoreapi.com/products");
+        const res = await fetch("http://localhost:3000/products/all-products");
         const data = await res.json();
-        console.log(data);
-        setProducts(data);
+        console.log(data.products);
+        setProducts(data.products);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -28,26 +28,27 @@ function Products() {
     <>
       <div className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap gap-2 justify-center -m-4">
+        <div className="flex flex-wrap gap-2 justify-center -m-4 items">
         {loading ? (
           <div>Loading...</div>
         ) : (
           products.map((product) => (
-                <div className="lg:w-1/4 md:w-1/2 p-4 w-full bg-slate-200 rounded-md">
-                  <a className="block relative h-48 rounded overflow-hidden">
+                <div className="lg:w-1/4 md:w-1/2 p-4 w-full bg-slate-200 rounded-md card" key={product.productId}>
+                  <a className="block relative h-48 rounded overflow-hidden" href={`product\\${product.productId}`}>
                     <img
-                      alt="ecommerce"
+                      alt={product.productName}
                       className="object-cover object-center w-full h-full block"
-                      src={product.image}
+                      src={product.productImage}
                     />
-                  </a>
-                  <div className="mt-4">
-                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      {product.category.toUpperCase()}
+                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 category-name">
+                      {product.categoryName.toUpperCase()}
                     </h3>
-                    <h4 className="mt-1">${product.price}</h4>
+                  </a>
+                  <div className="mt-4 card-body">
+                    <h2 className="text-bold">{product.productName}</h2>
+                    <h4 className="mt-1">${product.productPrice}</h4>
+                  {/* <button className="btn text-white p-2 rounded-md mt-2 w-full">View Product</button> */}
                   </div>
-                  <button className="btn text-white p-2 rounded-md mt-2 w-full">View Product</button>
                 </div>
           ))
         )}

@@ -1,6 +1,48 @@
 .btn{
-    background-color: dodgerblue;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #e81c43;
+    border-radius: 5px;
 }
 .btn:hover{
-    background-color: rgb(24, 129, 235);
+    background-color: #bf1340;
+}
+
+.category-name {
+    font-size: 11px;
+    color: gray;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 200px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition-duration: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.card > a > img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }

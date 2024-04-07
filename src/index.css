@@ -33,7 +33,7 @@ nav{
 }
 
 .overlay{
-  background-color: dodgerblue;
+  background-color: #e81c43;
   width: 0;
   height: 10%;
   transition-duration: .3s;

@@ -5,6 +5,7 @@ import Products from "./Components/Products/products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Signup/signup";
 import Notfound from "./Components/notFound/notFound";
+import SingleProduct from "./Components/Singleproduct/singleProduct";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="products" element={<Products />} />
+          <Route path = "product/:id" element={<SingleProduct/>}/> 
           <Route path="*" element={< Notfound/>} />
         </Routes>
       </BrowserRouter>

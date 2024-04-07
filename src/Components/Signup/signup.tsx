@@ -8,7 +8,15 @@ function Signup() {
   const [lastName, setLastName ] = useState("")
   const [email, setEmail ] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  function showError(msg: string) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: msg,
+    });
+  }
 
   function showSuccess(msg: string, route: string){
     Swal.fire({
@@ -40,6 +48,8 @@ function Signup() {
 
     if(data.message){
       showSuccess(data.message, '/login')
+    } else if(data.error){
+      showError(data.error)
     }
   }
 
